@@ -1,4 +1,4 @@
 INFORMÁTICA GENERAL
-Cátedra: Drelichman
-Alumna: Ana Clara Hochnadel
-Etse repositorio tiene las carpetas de las prácticas de cada clase
+<br>Cátedra: Drelichman
+<br>Alumna: Ana Clara Hochnadel
+<br>Etse repositorio tiene las carpetas de las prácticas de cada clase
