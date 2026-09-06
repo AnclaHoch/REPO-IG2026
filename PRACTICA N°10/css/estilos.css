@@ -1,56 +1,305 @@
- /*empiezo con el BODY*/
- 
- body {
-    background-image: url(../img/BACKGROUND_FRIENDS.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+/* ============================================================
+   FRIENDS - REDISEÑO "TV GUIDE / VHS NOVENTOSO"
+   Estética generada por IA, distinta a la original (violeta/gold
+   sobre foto de fondo). Acá vamos con: fondo claro tipo papel de
+   revista de TV, paleta mostaza + teal + rojo ladrillo, tarjetas
+   tipo polaroid para las fotos y tipografías con espíritu 90s.
+   ============================================================ */
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    font-style: normal;
- }
+/* Fuentes: una tipo "marcador" (guiño al logo original de Friends)
+   para los títulos, y una fuente bien noventosa/cuadrada para el
+   menú y detalles. El cuerpo de texto usa una fuente legible. */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bungee&family=Nunito:wght@400;600;800&display=swap');
 
-/* acá pongo dos selectores de etiqueta*/
+:root {
+  --papel: #f4ecd8;
+  --papel-oscuro: #e8dcc0;
+  --tinta: #2b2620;
+  --mostaza: #e8a33d;
+  --teal: #1b7a72;
+  --teal-oscuro: #114f4a;
+  --ladrillo: #c0392b;
+  --amarillo-tv: #f2c94c;
+  --sombra-dura: 4px 4px 0px var(--tinta);
+}
 
- p {
-   color: gold;
-   background-color: blueviolet;
- }
+/* empiezo con el BODY */
 
- ol {
-   background-color: blueviolet;
- }
+body {
+  /* nada de foto de fondo: en su lugar, un patrón de cuadros
+     tipo piso de cafetería/diner de los 90 */
+  background-color: var(--papel);
+  background-image:
+    linear-gradient(45deg, var(--papel-oscuro) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--papel-oscuro) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--papel-oscuro) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--papel-oscuro) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  background-attachment: fixed;
 
- /*acá pongo selectores de id*/
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--tinta);
+
+  margin: 0;
+  padding: 24px 16px 60px;
+}
+
+/* LOGO e imágenes: todas quedan con marco tipo "polaroid" y una
+   leve inclinación, como pegadas en un fanzine de VHS */
+
+img {
+  display: block;
+  margin: 20px auto;
+  background-color: #fffdf7;
+  padding: 10px 10px 24px;
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra-dura);
+  transform: rotate(-2deg);
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* el logo principal no lleva el marco polaroid, va limpio arriba */
+body > img:first-of-type {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  transform: none;
+  filter: drop-shadow(3px 3px 0px var(--ladrillo));
+}
+
+#logo {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  transform: none;
+  filter: drop-shadow(3px 3px 0px var(--ladrillo));
+}
+
+/* MENÚ de navegación: tipo tabs de un control remoto / guía de canales */
+
+ul.BlueViolet {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 0;
+  margin: 24px auto 36px;
+  max-width: 700px;
+}
+
+ul.BlueViolet li {
+  display: inline-block;
+}
+
+ul.BlueViolet li a {
+  display: inline-block;
+  font-family: 'Bungee', 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: var(--papel);
+  background-color: var(--teal);
+  padding: 12px 20px;
+  border: 3px solid var(--tinta);
+  border-radius: 6px;
+  box-shadow: var(--sombra-dura);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+ul.BlueViolet li a:hover {
+  background-color: var(--ladrillo);
+  transform: translate(-2px, -2px);
+}
+
+ul.BlueViolet li a:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--tinta);
+}
+
+/* acá pongo dos selectores de etiqueta */
+
+p {
+  color: var(--tinta);
+  background-color: #fffdf7;
+  max-width: 780px;
+  margin: 18px auto;
+  padding: 18px 22px;
+  border-left: 8px solid var(--mostaza);
+  border-radius: 4px;
+  box-shadow: 3px 3px 0px rgba(43, 38, 32, 0.15);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+ol {
+  background-color: var(--teal-oscuro);
+  color: var(--papel);
+  max-width: 780px;
+  margin: 24px auto;
+  padding: 20px 20px 20px 44px;
+  border: 3px solid var(--tinta);
+  border-radius: 6px;
+  box-shadow: var(--sombra-dura);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  counter-reset: temporada;
+}
+
+ol li {
+  list-style: none;
+  position: relative;
+  padding: 10px 0 10px 10px;
+  border-bottom: 1px dashed rgba(244, 236, 216, 0.35);
+  counter-increment: temporada;
+}
+
+ol li:last-child {
+  border-bottom: none;
+}
+
+ol li::before {
+  content: "T" counter(temporada);
+  position: absolute;
+  left: -44px;
+  top: 8px;
+  background-color: var(--amarillo-tv);
+  color: var(--tinta);
+  font-family: 'Bungee', sans-serif;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 2px solid var(--tinta);
+}
+
+/* acá pongo selectores de id (los h1 de cada sección) */
+
+h1 {
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.6rem;
+  font-weight: 400;
+  margin: 10px auto 26px;
+  max-width: 800px;
+  text-shadow:
+    3px 3px 0 var(--amarillo-tv),
+    6px 6px 0 var(--ladrillo);
+}
 
 #MediumPurple {
-   color: mediumpurple;
-   background-color: gold;
+  color: var(--teal-oscuro);
+  background-color: var(--amarillo-tv);
+  padding: 14px 10px;
+  border-radius: 8px;
+  border: 3px dashed var(--teal-oscuro);
 }
 
 #Purple {
-   color: purple;
-   background-color: gold;
+  color: var(--papel);
+  background-color: var(--ladrillo);
+  padding: 14px 10px;
+  border-radius: 8px;
+  border: 3px dashed var(--tinta);
 }
 
 #DarkMagenta {
-   color: darkmagenta;
-   background-color: gold;
+  color: var(--tinta);
+  background-color: var(--mostaza);
+  padding: 14px 10px;
+  border-radius: 8px;
+  border: 3px dashed var(--tinta);
 }
 
 #DarkViolet {
-   color: darkviolet;
-   background-color: gold;
+  color: var(--papel);
+  background-color: var(--teal);
+  padding: 14px 10px;
+  border-radius: 8px;
+  border: 3px dashed var(--tinta);
 }
 
-/*acá pongo selectores de class*/
+/* acá pongo selectores de class */
 
 .gold {
-   color: gold;
+  color: var(--amarillo-tv);
 }
 
 .DarkViolet {
-   background-color: darkviolet;
+  background-color: var(--tinta);
 }
+
+/* combo h2 + ul de personajes: "gold DarkViolet" -> tarjeta oscura
+   con detalles en amarillo, estilo créditos finales de sitcom */
+
+h2.gold.DarkViolet {
+  font-family: 'Bungee', sans-serif;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 14px;
+  border-radius: 8px;
+  max-width: 780px;
+  margin: 30px auto 10px;
+  letter-spacing: 1px;
+}
+
+ul.gold.DarkViolet {
+  max-width: 780px;
+  margin: 0 auto 30px;
+  padding: 20px 24px;
+  border-radius: 8px;
+  border: 3px solid var(--amarillo-tv);
+  box-shadow: var(--sombra-dura);
+}
+
+ul.gold.DarkViolet li {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  color: var(--papel);
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(232, 163, 61, 0.4);
+  line-height: 1.6;
+}
+
+ul.gold.DarkViolet li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive básico para que no se rompa en pantallas chicas */
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  ul.BlueViolet {
+    gap: 8px;
+  }
+
+  ul.BlueViolet li a {
+    font-size: 0.7rem;
+    padding: 10px 14px;
+  }
+
+  img {
+    transform: none;
+  }
+}
+
+
+
+/* - Todos los comentarios más arriba son hechos por la IA
+   - Utilice Claude IA y el promopt que le di fue el siguiente:
+   "yo realice una pagina web de la serie de televisión FRIENDS para una practica que me pidieron en la facultad donde estoy estudiando. En la misma practica me piden que le pida a una IA, en este caso te voy a pedir a vos que me realices de cero la parte del CSS con una estética y diseño muy diferente al original utilizando de base el HTML que realice yo."
+   "yo te paso mi pagina web completa y la parte del css la haces DISTINTA A MI ESTETICA"
+   - La IA me devolvió un CSS mucho mas detallado con mas propiedades y más configuraciones de las que vimos hasta ahora
+   - La estética que me propuso fue "Vos me pediste una estética muy diferente a la original, y como referencia mencioné que Friends suele ir con tonos cálidos/tierra y tipografía clásica de sitcom noventera. Ahora decís que la tipografía "clásica tipo sitcom de los 90" está bien — ¿querés que la mantenga como guiño (por ejemplo, solo en el logo/título) pero que el resto del diseño (colores, layout, estilo general) sea bien distinto al original? ¿O preferís que directamente busquemos otra dirección tipográfica también, para que sea 100% distinto"
+   - Yo le acepte la estética y le volví a remarcar que sea distinta a la mia
+   - Obviamente como puse más arriba, al utiliar mas propiedades que las que vimos en la materia hasta la fecha la estética, legibilidad y organización del código están desarrollados mejor en el archivo de la IA
+  
