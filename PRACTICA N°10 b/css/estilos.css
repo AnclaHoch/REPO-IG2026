@@ -4,53 +4,175 @@
     background-image: url(../img/BACKGROUND_FRIENDS.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
     background-attachment: fixed;
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: 600;
     font-style: normal;
- }
+    margin: 0;
+    padding: 24px 16px 60px;
+}
 
-/* acá pongo dos selectores de etiqueta*/
+ /* acá pongo dos selectores de etiqueta*/
+
+ img {
+    display: block;
+    margin: 20px auto;
+    background-color: #fffdf7;
+    padding: 10px 10px 24px;
+    border: 3px solid var(--tinta);
+    box-shadow: var(--sombra-dura);
+    transform: rotate(-2deg);
+    max-width: 100%;
+    height: auto !important;
+}
+
+ ul.BlueViolet {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 0;
+  margin: 24px auto 36px;
+  max-width: 700px;
+}
+
+ul.BlueViolet li {
+  display: inline-block;
+}
+
+ul.BlueViolet li a {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: gold;
+    background-color: var(--teal);
+    padding: 12px 20px;
+    border: 3px solid var(--tinta);
+    border-radius: 6px;
+    box-shadow: var(--sombra-dura);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+ul.BlueViolet li a:hover {
+  background-color: var(--ladrillo);
+  transform: translate(-2px, -2px);
+}
+
+ul.BlueViolet li a:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--tinta);
+}
+    
+
+h1 {
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: 400;
+    margin: 10px auto 26px;
+    max-width: 800px;
+    text-shadow:
+    3px 3px 0 var(--amarillo-tv),
+    6px 6px 0 var(--ladrillo);
+  }
 
  p {
-   color: gold;
-   background-color: blueviolet;
+    color: gold;
+    background-color: blueviolet;
+    max-width: 780px;
+    margin: 18px auto;
+    padding: 18px 22px;
+    border-left: 8px solid var(--mostaza);
+    border-radius: 4px;
+    box-shadow: 3px 3px 0px rgba(43, 38, 32, 0.15);
+    line-height: 1.6;
+    font-weight: 400;
+    border-radius: 12px;
+
  }
 
  ol {
-   background-color: blueviolet;
- }
+    background-color: blueviolet;
+    color: var(--papel);
+    max-width: 780px;
+    margin: 24px auto;
+    padding: 20px 20px 20px 44px;
+    border: 3px solid var(--tinta);
+    border-radius: 8px;
+    box-shadow: var(--sombra-dura);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    counter-reset: temporada;
+ } 
 
  /*acá pongo selectores de id*/
 
 #MediumPurple {
-   color: mediumpurple;
-   background-color: gold;
+    color: mediumpurple;
+    background-color: gold;
+    border-radius: 12px;
 }
 
 #Purple {
-   color: purple;
-   background-color: gold;
+    color: purple;
+    background-color: gold;
+    border-radius: 12px;
 }
 
+
 #DarkMagenta {
-   color: darkmagenta;
-   background-color: gold;
+    color: darkmagenta;
+    background-color: gold;
+    border-radius: 12px;
 }
 
 #DarkViolet {
-   color: darkviolet;
-   background-color: gold;
+    color: darkviolet;
+    background-color: gold;
+    border-radius: 12px;
+    
 }
 
-/*acá pongo selectores de class*/
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 10px auto 26px;
+    max-width: 800px;
+    border-radius: 12px;
+}
 
 .gold {
-   color: gold;
+    color: gold;
 }
 
 .DarkViolet {
-   background-color: darkviolet;
+    background-color: darkviolet;
 }
+
+ul #Gold{
+   align-content: center;
+}
+
+ul li#Gold {
+    color: gold;
+    background-color: blueviolet;
+    max-width: 780px;
+    margin: 18px auto;
+    padding: 20px 20px 20px 20px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0px rgba(43, 38, 32, 0.15);
+    line-height: 1.6;
+    font-size: large;
+    font-weight: 400;
+    border-radius: 6px;
+
+}
+
+
